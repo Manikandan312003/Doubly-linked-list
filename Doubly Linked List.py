@@ -137,6 +137,16 @@ class doublyLinkedList:
             print(tempHead.value,tempTail.value)
         return True
 
+    def search(self,value):
+        temp=self.head
+        length=0
+        while length<self.length and temp.value!=value:
+            length+=1
+            temp=temp.next
+        if temp==None or temp.value!=value:
+            return None
+        return length
+
     def delete(self):
         prev=temp=self.head
         self.length=0
@@ -155,7 +165,7 @@ if __name__ == '__main__':
         n = int(input("Enter 1.Display Linked List.\n2.Insert at First.\n3.Insert at End."
 "\n4.Insert at Position.\n5.Remove at First.\n6.Remove at last.\n7.Remove at Position."
 "\n8.Get value at position\n9.Set or Update value at position"
-"\n10Reverse LinkedList.\n11.Delete all node.\n12.Exit...."))
+"\n10Reverse LinkedList.\n11.Delete all node.\n12.Search.\n13.Exit...."))
         if n == 1:
             print(str(dlinkedList).center(175," "))
         if n == 2:
@@ -181,5 +191,7 @@ if __name__ == '__main__':
         if n==11:
             dlinkedList.delete()
         if n == 12:
+            print(dlinkedList.search(int(input())))
+        if n == 13:
             print("\n","Ending".center(175, "."))
             break
